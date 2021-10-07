@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_res_choix_pile.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/07 10:07:12 by mbonnet           #+#    #+#             */
+/*   Updated: 2021/10/07 10:19:49 by mbonnet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_res_choix_pile_par_nb(t_mem *mem, t_lst *fin, t_lst *ref)
@@ -51,7 +63,7 @@ int	ft_res_choix_pile_par_index(t_mem *mem, t_lst *fin, t_lst *ref)
 	return (res);
 }
 
-int	ft_res_ou_ex_choix_pile(t_mem *mem, t_lst *fin ,int tele, t_lst *ref)
+int	ft_res_ou_ex_choix_pile(t_mem *mem, t_lst *fin, int tele, t_lst *ref)
 {
 	int		len_index;
 	int		len_nb;

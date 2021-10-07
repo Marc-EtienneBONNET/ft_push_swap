@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 10:03:15 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 08:33:05 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/07 10:22:14 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct s_mem
 {
 	t_stack	a;
 	t_stack	b;
-	int *trie;
-	char **tab_trie;
+	int		*trie;
+	char	**tab_trie;
 }	t_mem;
 
 int		*ft_init_parsage(int ac, char **av);
@@ -63,7 +63,7 @@ void	ft_affichage_trie(t_mem mem);
 void	ft_init_index(t_mem *mem);
 void	ft_affichage_lst_previous(t_stack pile, char *str);
 void	ft_affichage_lst(t_stack pile, char *str);
-int		ft_res_ou_ex_choix_pile(t_mem *mem, t_lst *fin ,int tele, t_lst *ref);
+int		ft_res_ou_ex_choix_pile(t_mem *mem, t_lst *fin, int tele, t_lst *ref);
 int		ft_res_choix_pile_par_index(t_mem *mem, t_lst *fin, t_lst *ref);
 int		ft_res_choix_pile_par_nb(t_mem *mem, t_lst *fin, t_lst *ref);
 int		ft_absolut(int x);
@@ -75,5 +75,10 @@ void	ft_ex_trie_pile_b(t_mem *mem);
 int		ft_compte_rb_rrb(t_mem *mem, t_lst *lst);
 int		ft_compte_ra_rra(t_mem *mem, t_lst *lst);
 void	ft_traitement_tab_trie(t_mem *mem);
+int		ft_ex_rra(t_mem *mem);
+int		ft_ex_ra(t_mem *mem);
+int		ft_ex_sa(t_mem *mem);
+int		ft_if_dans_l_ordre(t_lst *lst, int size);
+int		ft_if_b(t_lst *lst, int size);
 
 #endif

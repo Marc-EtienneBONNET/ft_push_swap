@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ex_choix_pile.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/07 10:07:09 by mbonnet           #+#    #+#             */
+/*   Updated: 2021/10/07 10:19:38 by mbonnet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_absolut(int x)
@@ -61,7 +73,6 @@ void	ft_ex_choix_pile_par_index(t_mem *mem, t_lst *fin, t_lst *ref)
 			return ;
 		tmp = tmp->next;
 	}
-
 }
 
 int	ft_best_balisage(t_mem *mem, int tele)

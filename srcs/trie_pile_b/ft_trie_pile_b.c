@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_trie_pile_b.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/07 10:05:50 by mbonnet           #+#    #+#             */
+/*   Updated: 2021/10/07 10:18:32 by mbonnet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_lst	*ft_defini_position_de_b_dans_a_2(int nb, t_mem *mem)
@@ -43,18 +55,15 @@ t_lst	*ft_defini_position_de_b_dans_a(int nb, t_mem *mem)
 	while (mem->a.size > ++x)
 	{
 		espace = tmp->nb - nb;
-		if (espace > 0)
+		if (espace < res && espace > 0 && res > 0)
 		{
-			if (espace < res)
-			{
-				tmp_res = tmp;
-				res = espace;
-			}
+			tmp_res = tmp;
+			res = espace;
 		}
 		tmp = tmp->next;
 	}
 	if (tmp_res == 0)
-		tmp_res = ft_defini_position_de_b_dans_a_2(nb,mem);
+		tmp_res = ft_defini_position_de_b_dans_a_2(nb, mem);
 	return (tmp_res);
 }
 
