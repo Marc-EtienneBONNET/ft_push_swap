@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:06:45 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 17:41:35 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:27:13 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ int	ft_fin(t_mem *mem, int nb)
 	if (mem->tab_trie != NULL)
 		free(mem->tab_trie);
 	if (nb == -1)
-		ft_printf("erreur\n");
+		ft_printf("Error\n");
 	return (nb);
 }
