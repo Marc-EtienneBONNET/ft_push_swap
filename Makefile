@@ -6,7 +6,7 @@
 #    By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/04 15:14:49 by mbonnet           #+#    #+#              #
-#    Updated: 2021/10/07 10:12:19 by mbonnet          ###   ########.fr        #
+#    Updated: 2021/10/07 18:11:23 by mbonnet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRCS			=	main.c\
 					balisage/ft_res_choix_pile.c\
 					balisage/ft_ex_choix_pile.c\
 					trie_pile_a/ft_trie_pile_a.c\
+					trie_pile_a/ft_mise_pointeur_sur_le_plus_grand.c\
 					trie_pile_a/ft_trie_pile_a_2.c\
+					trie_pile_b/ft_trie_pile_b_2.c\
 					trie_pile_b/ft_trie_pile_b.c\
 					trie_pile_b/ft_compte_rb_rrb.c\
 					trie_pile_b/ft_compte_ra_rra.c\

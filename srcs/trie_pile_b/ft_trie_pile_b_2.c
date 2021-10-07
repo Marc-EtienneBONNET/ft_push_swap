@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_cara_trie.c                                :+:      :+:    :+:   */
+/*   ft_trie_pile_b_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 10:06:53 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 17:28:07 by mbonnet          ###   ########.fr       */
+/*   Created: 2021/10/07 18:11:57 by mbonnet           #+#    #+#             */
+/*   Updated: 2021/10/07 18:11:58 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**ft_init_cara_trie(void)
+int	ft_ex_trie_pile_2(t_mem *mem, int r_b)
 {
-	char	**res;
+	int	secu;
 
-	res = malloc(sizeof(char *) * 12);
-	if (res == NULL)
-		return (NULL);
-	res[0] = "pa";
-	res[1] = "pb";
-	res[2] = "ra";
-	res[3] = "rb";
-	res[4] = "rr";
-	res[5] = "rra";
-	res[6] = "rrb";
-	res[7] = "rrr";
-	res[8] = "sa";
-	res[9] = "sb";
-	res[10] = "ss";
-	res[11] = NULL;
-	return (res);
+	secu = 1;
+	while (r_b > 0 && secu != -1)
+	{
+		secu = ft_rb(mem, 1);
+		r_b--;
+	}
+	while (r_b < 0 && secu != -1)
+	{
+		secu = ft_rrb(mem, 1);
+		r_b++;
+	}
+	if (secu == -1)
+		return (-1);
+	return (1);
 }

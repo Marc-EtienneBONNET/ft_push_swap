@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:05:50 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 10:18:32 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:10:12 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,42 +94,41 @@ t_lst	*ft_choix_nb_dans_pile(t_mem *mem)
 	return (tmp_mem);
 }
 
-void	ft_ex_trie_pile(t_mem *mem, t_lst *lst)
+int	ft_ex_trie_pile(t_mem *mem, t_lst *lst)
 {
 	int	r_b;
 	int	r_a;
+	int	secu;
 
+	secu = 1;
 	r_b = ft_compte_rb_rrb(mem, lst);
 	r_a = ft_compte_ra_rra(mem, ft_defini_position_de_b_dans_a(lst->nb, mem));
-	while (r_a > 0)
+	while (r_a > 0 && secu != -1)
 	{
-		ft_ra(mem, 1);
+		secu = ft_ra(mem, 1);
 		r_a--;
 	}
-	while (r_a < 0)
+	while (r_a < 0 && secu != -1)
 	{
-		ft_rra(mem, 1);
+		secu = ft_rra(mem, 1);
 		r_a++;
 	}
-	while (r_b > 0)
-	{
-		ft_rb(mem, 1);
-		r_b--;
-	}
-	while (r_b < 0)
-	{
-		ft_rrb(mem, 1);
-		r_b++;
-	}
+	if (secu == -1 || ft_ex_trie_pile_2(mem, r_b) == -1)
+		return (-1);
+	return (1);
 }
 
-void	ft_ex_trie_pile_b(t_mem *mem)
+int	ft_ex_trie_pile_b(t_mem *mem)
 {
 	while (mem->b.size != 0)
 	{
 		if (mem->b.lst->previous->nb < mem->b.lst->previous->previous->nb)
-			ft_sb(mem, 1);
-		ft_ex_trie_pile(mem, ft_choix_nb_dans_pile(mem));
-		ft_pa(mem, 1);
+			if (ft_sb(mem, 1) == -1)
+				return (-1);
+		if (ft_ex_trie_pile(mem, ft_choix_nb_dans_pile(mem)) == -1)
+			return (-1);
+		if (ft_pa(mem, 1) == -1)
+			return (-1);
 	}
+	return (1);
 }
