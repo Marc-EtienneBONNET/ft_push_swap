@@ -5,29 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 18:11:57 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 18:11:58 by mbonnet          ###   ########.fr       */
+/*   Created: 2021/10/07 10:05:50 by mbonnet           #+#    #+#             */
+/*   Updated: 2021/10/08 08:27:42 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_ex_trie_pile_2(t_mem *mem, int r_b)
+t_lst	*ft_defini_position_de_b_dans_a_2(int nb, t_mem *mem)
 {
-	int	secu;
+	int		x;
+	int		espace;
+	int		res;
+	t_lst	*tmp;
+	t_lst	*tmp_res;
 
-	secu = 1;
-	while (r_b > 0 && secu != -1)
+	tmp = mem->a.lst;
+	tmp_res = NULL;
+	x = -1;
+	res = 0;
+	while (mem->a.size > ++x)
 	{
-		secu = ft_rb(mem, 1);
-		r_b--;
+		espace = nb - tmp->nb;
+		if (espace > 0)
+		{
+			if (espace > res)
+			{
+				tmp_res = tmp;
+				res = espace;
+			}
+		}
+		tmp = tmp->next;
 	}
-	while (r_b < 0 && secu != -1)
+	return (tmp_res);
+}
+
+t_lst	*ft_defini_position_de_b_dans_a(int nb, t_mem *mem)
+{
+	int		x;
+	int		espace;
+	int		res;
+	t_lst	*tmp;
+	t_lst	*tmp_res;
+
+	tmp = mem->a.lst;
+	tmp_res = NULL;
+	x = -1;
+	res = 2147483647;
+	while (mem->a.size > ++x)
 	{
-		secu = ft_rrb(mem, 1);
-		r_b++;
+		espace = tmp->nb - nb;
+		if (espace < res && espace > 0 && res > 0)
+		{
+			tmp_res = tmp;
+			res = espace;
+		}
+		tmp = tmp->next;
 	}
-	if (secu == -1)
-		return (-1);
-	return (1);
+	if (tmp_res == 0)
+		tmp_res = ft_defini_position_de_b_dans_a_2(nb, mem);
+	return (tmp_res);
 }

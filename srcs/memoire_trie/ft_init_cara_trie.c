@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:06:53 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 17:28:07 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 08:01:06 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ char	**ft_init_cara_trie(void)
 {
 	char	**res;
 
+	errno = 0;
 	res = malloc(sizeof(char *) * 12);
-	if (res == NULL)
+	if (errno != 0)
 		return (NULL);
 	res[0] = "pa";
 	res[1] = "pb";

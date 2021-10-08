@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:06:49 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 17:40:12 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 07:56:02 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	*ft_ajoute_trie(int **trie, int num_trie)
 		while ((*trie)[x] != -1)
 			x++;
 		new_tab = malloc(sizeof(int) * (x + 2));
+		if (errno != 0)
+			return (NULL);
 		x = -1;
 		while ((*trie)[++x] != -1)
 			new_tab[x] = (*trie)[x];

@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:06:15 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 18:17:49 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 07:25:24 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,11 @@ void	ft_pousse_dans_b(t_mem *mem, t_lst *new)
 {
 	t_lst	*tmp;
 
-	if (mem->b.size == 0)
-	{
-		mem->b.lst = new;
-		mem->b.lst->next = mem->b.lst;
-		mem->b.lst->previous = mem->b.lst;
-	}
-	else
-	{
-		tmp = mem->b.lst->previous;
-		tmp->next = new;
-		new->next = mem->b.lst;
-		new->previous = mem->b.lst->previous;
-		mem->b.lst->previous = new;
-	}
+	tmp = mem->b.lst->previous;
+	tmp->next = new;
+	new->next = mem->b.lst;
+	new->previous = mem->b.lst->previous;
+	mem->b.lst->previous = new;
 }
 
 int	ft_pb(t_mem *mem, int tele)
@@ -46,16 +37,17 @@ int	ft_pb(t_mem *mem, int tele)
 	tmp_deb->previous = tmp_av_der;
 	tmp_av_der->next = tmp_deb;
 	mem->a.lst = tmp_deb;
-	ft_pousse_dans_b(mem, new);
+	if (mem->b.size == 0)
+	{
+		mem->b.lst = new;
+		mem->b.lst->next = mem->b.lst;
+		mem->b.lst->previous = mem->b.lst;
+	}
+	else
+		ft_pousse_dans_b(mem, new);
 	mem->b.size++;
 	mem->a.size--;
-	if (tele == 1)
-	{
-		mem->trie = ft_ajoute_trie(&(mem->trie), 1);
-		if (mem->trie == NULL)
-			return (-1);
-	}
-	return (1);
+	return (ft_retour_fonction_trie(mem, tele, 1));
 }
 
 void	ft_pousse_dans_a(t_mem *mem, t_lst *new)
@@ -81,8 +73,6 @@ void	ft_pousse_dans_a(t_mem *mem, t_lst *new)
 		tmp->previous = new;
 		mem->a.lst = tmp;
 	}
-	mem->a.size++;
-	mem->b.size--;
 }
 
 int	ft_pa(t_mem *mem, int tele)
@@ -105,11 +95,7 @@ int	ft_pa(t_mem *mem, int tele)
 	else
 		mem->b.lst = NULL;
 	ft_pousse_dans_a(mem, new);
-	if (tele == 1)
-	{
-		mem->trie = ft_ajoute_trie(&(mem->trie), 0);
-		if (mem->trie == NULL)
-			return (-1);
-	}
-	return (1);
+	mem->a.size++;
+	mem->b.size--;
+	return (ft_retour_fonction_trie(mem, tele, 0));
 }

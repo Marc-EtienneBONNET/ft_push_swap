@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:05:32 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 18:40:07 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 08:23:56 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		free(tab);
-		return (ft_fin(&mem, 0));
+		return (0);
 	}
 	mem = ft_init_mem(&tab, ac);
 	if (mem.a.lst == NULL)
@@ -44,7 +44,6 @@ int	main(int ac, char **av)
 		return (ft_fin(&mem, -1));
 	ft_init_index(&mem);
 	if (ft_ex_trie_pile_a(&mem) == -1 || ft_ex_trie_pile_b(&mem) == -1
-		|| ft_mise_header_sur_le_plus_grand(&mem) == -1
 		|| ft_mise_header_sur_le_plus_grand(&mem) == -1)
 		return (ft_fin(&mem, -1));
 	return (ft_fin(&mem, 0));

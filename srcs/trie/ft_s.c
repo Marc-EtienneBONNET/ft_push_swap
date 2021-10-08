@@ -6,22 +6,11 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:06:26 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 18:20:56 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 07:22:37 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_retour(t_mem *mem, int tele)
-{
-	if (tele == 1)
-	{
-		mem->trie = ft_ajoute_trie(&(mem->trie), 8);
-		if (mem->trie == NULL)
-			return (-1);
-	}
-	return (1);
-}
 
 int	ft_sa(t_mem *mem, int tele)
 {
@@ -45,7 +34,7 @@ int	ft_sa(t_mem *mem, int tele)
 	}
 	else if (mem->a.size == 2)
 		mem->a.lst = mem->a.lst->next;
-	return (ft_retour(mem, tele));
+	return (ft_retour_fonction_trie(mem, tele, 8));
 }
 
 int	ft_sb(t_mem *mem, int tele)
@@ -70,18 +59,12 @@ int	ft_sb(t_mem *mem, int tele)
 	}
 	else if (mem->b.size == 2)
 		mem->b.lst = mem->b.lst->next;
-	return (ft_retour(mem, tele));
+	return (ft_retour_fonction_trie(mem, tele, 9));
 }
 
 int	ft_ss(t_mem *mem, int tele)
 {
 	ft_sa(mem, 0);
 	ft_sb(mem, 0);
-	if (tele == 1)
-	{
-		mem->trie = ft_ajoute_trie(&(mem->trie), 10);
-		if (mem->trie == NULL)
-			return (-1);
-	}
-	return (1);
+	return (ft_retour_fonction_trie(mem, tele, 10));
 }

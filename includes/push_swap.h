@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 10:03:15 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 18:10:32 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 08:27:58 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		ft_rrb(t_mem *mem, int tele);
 int		ft_rrr(t_mem *mem, int tele);
 int		ft_pb(t_mem *mem, int tele);
 int		ft_pa(t_mem *mem, int tele);
+int		ft_retour_fonction_trie(t_mem *mem, int tele, int trie);
 int		*ft_ajoute_trie(int **trie, int num_trie);
 char	**ft_init_cara_trie(void);
 void	ft_affichage_trie(t_mem mem);
@@ -82,6 +83,6 @@ int		ft_if_dans_l_ordre(t_lst *lst, int size);
 int		ft_if_b(t_lst *lst, int size);
 int		ft_fin(t_mem *mem, int nb);
 int		ft_mise_header_sur_le_plus_grand(t_mem *mem);
-int		ft_ex_trie_pile_2(t_mem *mem, int r_b);
+t_lst	*ft_defini_position_de_b_dans_a(int nb, t_mem *mem);
 
 #endif

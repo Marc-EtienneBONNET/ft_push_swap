@@ -6,7 +6,7 @@
 /*   By: mbonnet <mbonnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 10:07:03 by mbonnet           #+#    #+#             */
-/*   Updated: 2021/10/07 16:26:05 by mbonnet          ###   ########.fr       */
+/*   Updated: 2021/10/08 07:58:27 by mbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ t_mem	ft_init_mem(int **tab, int ac)
 	mem.trie = NULL;
 	mem.a.lst = ft_remplie_stack_a(*tab, ac, &(mem.a.size));
 	free(*tab);
+	if (mem.a.lst == NULL)
+		return (mem);
 	ft_ajoute_previous(&mem);
 	return (mem);
 }
